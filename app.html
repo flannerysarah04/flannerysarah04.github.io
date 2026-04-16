@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="../Styles 2/style.css">
+
+    <style>
+        #game {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #c7a4ff;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        input {
+            padding: 8px;
+            width: 80%;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #c7a4ff;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="resume.html">Resume</a>
+    <a href="scratch.html">Scratch Page</a>
+    <a href="app.html">Number Guessing App</a>
+</nav>
+
+<div class="container">
+
+    <div id="game">
+        <h2>Guess the Number!</h2>
+        <p>I’m thinking of a number between 1 and 20.</p>
+
+        <input type="number" id="guess" placeholder="Enter your guess">
+        <button onclick="checkGuess()">Submit</button>
+
+        <p id="result"></p>
+    </div>
+
+</div>
+
+<footer class="footer">
+    © 2026 Sarah Flannery
+</footer>
+
+<script>
+    let secret = Math.floor(Math.random() * 20) + 1;
+
+    function checkGuess() {
+        let guess = Number(document.getElementById("guess").value);
+        let result = document.getElementById("result");
+
+        if (guess === secret) {
+            result.textContent = "Correct! You guessed it!";
+        } else if (guess < secret) {
+            result.textContent = "Too low — try again!";
+        } else {
+            result.textContent = "Too high — try again!";
+        }
+    }
+</script>
+
+</body>
+</html>
